@@ -18,11 +18,6 @@ class Database{
 	public function eksekusi($query){
 		$this->result=mysqli_query($this->conn,$query);
 	}
-	public function getpenyakit(){
-		$query="SELECT ID_penyakit,nama_penyakit from penyakit";
-		$this->eksekusi($query);
-		return $this->result;
-	}
 	public function getgejala($ID_penyakit){
 		$query="SELECT penyakit.nama_penyakit,gejala.nama_gejala FROM gejala JOIN aturan ON gejala.ID_gejala=aturan.ID_gejala JOIN penyakit ON aturan.ID_penyakit=penyakit.ID_penyakit WHERE penyakit.ID_penyakit='$ID_penyakit'";
 		$this->eksekusi($query);
@@ -30,6 +25,16 @@ class Database{
 	}
 	public function getgejalaID(){
 		$query="SELECT ID_gejala,nama_gejala from gejala";
+		$this->eksekusi($query);
+		return $this->result;
+	}
+	public function penyakit($ID_penyakit){
+		$query="SELECT * from penyakit WHERE ID_penyakit=$ID_penyakit";
+		$this->eksekusi($query);
+		return $this->result;
+	}
+	public function penyakitall(){
+		$query="SELECT * from penyakit";
 		$this->eksekusi($query);
 		return $this->result;
 	}

@@ -9,7 +9,7 @@ $akses->connect();
 		<th>Nama Penyakit</th>
 		<th>Aksi</th>
 	</tr>
-	<?php foreach ($akses->getpenyakit() as $key) { ?>
+	<?php foreach ($akses->penyakitall() as $key) { ?>
 	<tr>
 		<td><?php echo $key['ID_penyakit']; ?></td>
 		<td><?php echo $key['nama_penyakit']; ?></td>
